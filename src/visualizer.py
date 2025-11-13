@@ -70,7 +70,7 @@ class ChartVisualizer:
                 r=scores_closed,
                 theta=dimensions_closed,
                 fill="toself",
-                fillcolor=f'{self.color_palette["primary"]}30',  # 30% opacity
+                fillcolor=f"rgba(31, 119, 180, 0.3)",  # RGBA format with 30% opacity
                 line=dict(color=self.color_palette["primary"], width=3),
                 marker=dict(color=self.color_palette["primary"], size=8),
                 name="能力スコア",
@@ -80,26 +80,28 @@ class ChartVisualizer:
 
         # Add score values as text annotations if requested
         if show_values:
-            for i, (dim, score) in enumerate(zip(dimensions, scores)):
-                # Calculate position for text
-                angle = (i * 360 / len(dimensions)) * (
-                    3.14159 / 180
-                )  # Convert to radians
-                r_text = score + 0.5  # Slightly outside the point
+            # Alternative approach: Add text as separate traces instead of annotations
+            text_r = [
+                score + 0.8 for score in scores
+            ]  # Position text outside the data points
+            text_r_closed = text_r + [text_r[0]]  # Close the loop
+            text_values = [str(score) for score in scores] + [str(scores[0])]
 
-                fig.add_annotation(
-                    x=r_text * np.cos(angle),
-                    y=r_text * np.sin(angle),
-                    text=str(score),
-                    showarrow=False,
-                    font=dict(
+            fig.add_trace(
+                go.Scatterpolar(
+                    r=text_r_closed,
+                    theta=dimensions_closed,
+                    mode="text",
+                    text=text_values,
+                    textfont=dict(
                         size=12,
                         color=self.color_palette["primary"],
                         family=self.font_family,
                     ),
-                    xref="polar",
-                    yref="polar",
+                    showlegend=False,
+                    hoverinfo="skip",
                 )
+            )
 
         # Update layout
         fig.update_layout(
@@ -223,7 +225,15 @@ class ChartVisualizer:
         """
         fig = go.Figure()
 
-        colors = [
+        # RGBA color values for transparency
+        rgba_colors = [
+            "rgba(31, 119, 180, 0.2)",  # primary with 20% opacity
+            "rgba(255, 127, 14, 0.2)",  # secondary with 20% opacity
+            "rgba(44, 160, 44, 0.2)",  # success with 20% opacity
+            "rgba(214, 39, 40, 0.2)",  # warning with 20% opacity
+        ]
+
+        line_colors = [
             self.color_palette["primary"],
             self.color_palette["secondary"],
             self.color_palette["success"],
@@ -238,16 +248,17 @@ class ChartVisualizer:
             dimensions_closed = dimensions + [dimensions[0]]
             scores_closed = scores + [scores[0]]
 
-            color = colors[i % len(colors)]
+            fill_color = rgba_colors[i % len(rgba_colors)]
+            line_color = line_colors[i % len(line_colors)]
 
             fig.add_trace(
                 go.Scatterpolar(
                     r=scores_closed,
                     theta=dimensions_closed,
                     fill="toself",
-                    fillcolor=f"{color}20",
-                    line=dict(color=color, width=2),
-                    marker=dict(color=color, size=6),
+                    fillcolor=fill_color,
+                    line=dict(color=line_color, width=2),
+                    marker=dict(color=line_color, size=6),
                     name=label,
                     hovertemplate=f"<b>{label}</b><br><b>%{{theta}}</b><br>スコア: %{{r}}/10<extra></extra>",
                 )
