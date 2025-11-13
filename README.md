@@ -4,6 +4,9 @@
 
 Potential Insight Compass (PIC) is an AI-powered career counseling support system that analyzes interview records and counseling notes to discover hidden strengths and career potentials. Using Google Gemini API, it transforms negative self-perceptions into positive insights and provides both qualitative and quantitative analysis of individual capabilities.
 
+![Main Interface](_images/mainpage1.jpeg)
+*Main application interface showing text input and analysis options*
+
 ## ✨ Key Features
 
 - **AI-Driven Analysis**: Leverages Google Gemini API for objective and consistent analysis
@@ -11,6 +14,14 @@ Potential Insight Compass (PIC) is an AI-powered career counseling support syste
 - **Dual Perspective**: Provides both qualitative insights and quantitative visualizations
 - **Interactive Charts**: Radar charts showing 6-dimensional capability scores
 - **User-Friendly Interface**: Built with Streamlit for intuitive operation
+
+![Analysis Results](_images/analysisResult1.jpeg)
+![Analysis Results](_images/analysisResult2.jpeg)
+![Analysis Results](_images/analysisResult3.jpeg)
+![Analysis Results](_images/analysisResult4.jpeg)
+![Analysis Results](_images/analysisResult5.jpeg)
+![Analysis Results](_images/analysisResult6.jpeg)
+*Sample analysis results showing qualitative insights and quantitative visualizations*
 
 ## 🏗️ Repository Structure
 
@@ -20,18 +31,26 @@ potential-insight-compass/
 ├── .env.example           # Environment variables template
 ├── .gitignore            # Git ignore rules
 ├── LICENSE               # MIT License
-├── README.md             # This file
+├── README.md             # This file (English)
+├── README-ja.md          # Japanese version
 ├── SPECIFICATION.md      # Detailed system specifications (Japanese)
 ├── requirements.txt      # Python dependencies
-├── app.py               # Main Streamlit application (to be created)
-├── src/                 # Source code directory (to be created)
+├── app.py               # Main Streamlit application
+├── _images/             # UI screenshots and demo images
+│   ├── mainpage1.jpeg    # Main interface screenshot
+│   ├── analysisResult*.jpeg # Analysis results examples
+│   └── resultExport.jpeg # Export functionality demo
+├── docs/                # Documentation
+│   ├── code-documentation.md # Detailed code documentation
+│   └── api-reference.md     # API reference guide
+├── src/                 # Source code directory
 │   ├── __init__.py
 │   ├── ai_analyzer.py   # Gemini API integration
 │   ├── data_processor.py # Data processing utilities
 │   └── visualizer.py    # Chart generation functions
-└── tests/              # Test files (to be created)
+└── tests/              # Test files
     ├── __init__.py
-    └── test_analyzer.py
+    └── test_analyzer.py # Unit tests for analyzer
 ```
 
 ## 🚀 Quick Start
@@ -88,17 +107,17 @@ potential-insight-compass/
 
 > **🔴 CRITICAL**: Always work within the virtual environment to avoid system-wide package conflicts.
 
-**Before any operation, always activate the virtual environment:**
+**Before any operation, always activate the virtual environment.**
 ```bash
 source .venv/bin/activate
 ```
 
-**To deactivate the virtual environment:**
+**To deactivate the virtual environment.**
 ```bash
 deactivate
 ```
 
-**To verify you're in the virtual environment:**
+**To verify you're in the virtual environment.**
 ```bash
 which python  # Should show path containing .venv
 python --version  # Should show Python 3.12.4
@@ -138,15 +157,25 @@ NGROK_TOKEN=your_ngrok_token_here
 
 3. **Input analysis text**
    - Paste counseling notes or interview records into the text area
-   - Click "Analyze" to process the input
+   - **Click "Analyze"** to process the input
+  ![main page - after the input](_images/mainpage2.jpeg)
 
 4. **View results**
-   - Qualitative analysis: 5 strengths and 3 career recommendations
-   - Quantitative analysis: Interactive radar chart with 6 capability dimensions
+   - **Qualitative analysis**: 5 strengths and 3 career recommendations
+  ![analysis result](_images/analysisResult1.jpeg)
+  ![analysis result](_images/analysisResult2.jpeg)
+  ![analysis result](_images/analysisResult3.jpeg)
+   - **Quantitative analysis**: Interactive radar chart with 6 capability dimensions
+  ![analysis result](_images/analysisResult4.jpeg)
+  ![analysis result](_images/analysisResult5.jpeg)
+  ![analysis result](_images/analysisResult6.jpeg)
+
+![Export Functionality](_images/resultExport.jpeg)
+*Export analysis results in JSON or Markdown format*
 
 ## 📊 Analysis Dimensions
 
-The system evaluates individuals across 6 key dimensions:
+The system evaluates individuals across 6 key dimensions.
 
 1. **継続・集中力** (Persistence & Focus)
 2. **実行・行動力** (Execution & Action)
@@ -198,12 +227,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Streamlit for the excellent web framework
 - Plotly for beautiful data visualizations
 
-## 📞 Support
+## 📕 Documentation
 
-If you encounter any issues or have questions, please:
-1. Check the [SPECIFICATION.md](SPECIFICATION.md) for detailed technical information
-2. Open an issue on GitHub
-3. Ensure you're working in the virtual environment when reporting bugs
+- **[Code Documentation](docs/code-documentation.md)**: Detailed explanation of all modules and functions
+- **[API Reference](docs/api-reference.md)**: Complete API reference with examples
+- **[System Specification](SPECIFICATION.md)**: Technical specifications (Japanese)
+- **[Japanese README](README-ja.md)**: 日本語版README
+
+## 🤙 Support
+
+If you encounter any issues or have questions, please
+1. Check the [documentation](docs/) for detailed technical information
+2. Review the [SPECIFICATION.md](SPECIFICATION.md) for system requirements
+3. Open an issue on GitHub
+4. Ensure you're working in the virtual environment when reporting bugs
 
 ---
 
