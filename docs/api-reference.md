@@ -6,7 +6,7 @@
 
 ---
 
-## 🧠 AIAnalyzer クラス
+## 🧠 AIAnalyzer クラス (src/ai_analyzer.py)
 
 ### 概要
 Google Gemini APIを使用してテキスト分析を行うメインクラス。
@@ -110,7 +110,7 @@ dimensions = analyzer.get_capability_dimensions()
 
 ---
 
-## 📊 DataProcessor クラス
+## 📊 DataProcessor クラス (src/data_processor.py)
 
 ### 概要
 データの前処理、検証、変換、エクスポート機能を提供するクラス。
@@ -231,7 +231,7 @@ ProcessedDataをMarkdown形式で出力します。
 
 ---
 
-## 📈 ChartVisualizer クラス
+## 📈 ChartVisualizer クラス (src/visualizer.py)
 
 ### 概要
 Plotlyを使用したインタラクティブチャートの生成を行うクラス。
@@ -336,7 +336,7 @@ fig = visualizer.create_comparison_chart(df_list, labels, "比較分析")
 
 ## 📋 データクラス
 
-### AnalysisResult
+### AnalysisResult (src/ai_analyzer.py)
 
 AI分析結果を格納するデータクラス。
 
@@ -358,7 +358,7 @@ print(f"職業適性数: {len(result.potential_jobs)}")
 print(f"処理時間: {result.processing_time:.2f}秒")
 ```
 
-### ProcessedData
+### ProcessedData (src/data_processor.py)
 
 処理済み分析データを格納するデータクラス。
 
