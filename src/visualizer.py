@@ -174,6 +174,10 @@ class ChartVisualizer:
             fig.update_layout(
                 xaxis_title="スコア",
                 yaxis_title="能力次元",
+                height=400,  # 横向きの場合は400pxに設定
+                margin=dict(
+                    t=60, b=60, l=120, r=60
+                ),  # 左マージンを大きくして能力次元名の表示を改善
             )
         else:
             fig = go.Figure(
@@ -194,7 +198,13 @@ class ChartVisualizer:
             )
 
             fig.update_layout(
-                xaxis_title="能力次元", yaxis_title="スコア", xaxis_tickangle=-45
+                xaxis_title="能力次元",
+                yaxis_title="スコア",
+                xaxis_tickangle=-45,
+                height=500,  # 縦向きの場合は500pxに設定
+                margin=dict(
+                    t=80, b=120, l=80, r=60
+                ),  # 下マージンを大きくして軸ラベルの表示を改善
             )
 
         fig.update_layout(

@@ -13,8 +13,8 @@ import sys
 # Add src directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 
-from ai_analyzer import AIAnalyzer, AnalysisResult
-from data_processor import DataProcessor
+from src.ai_analyzer import AIAnalyzer, AnalysisResult
+from src.data_processor import DataProcessor
 
 
 class TestAIAnalyzer(unittest.TestCase):
