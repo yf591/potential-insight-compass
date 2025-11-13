@@ -57,7 +57,7 @@ class AIAnalyzer:
         genai.configure(api_key=self.api_key)
 
         # Initialize the model
-        self.model = genai.GenerativeModel("gemini-1.5-flash")
+        self.model = genai.GenerativeModel("gemini-2.5-flash")
 
         # Define system prompt based on SPECIFICATION.md
         self.system_prompt = self._build_system_prompt()
